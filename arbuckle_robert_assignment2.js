@@ -19,7 +19,7 @@ function greetUser(rangedOrMelee, adventurerName) { //used to greet the user
 
     if ((rangedOrMelee == "Ranged") && (adventurerName == "Drusilla")) {
         console.log("Welcome back Guild Leader. I hope your quest concluded successfully.");
-       // reimbursementPerKillMultiplier = 3; //Guild Masters... always wanting more!  --- decided to remove the multiplier this would work better in a function then a procedure and didn't really add anything of depth to the story. 
+       // reimbursementPerKillMultiplier = 3; //Guild Masters... always wanting more!  --- decided to remove the multiplier this would work better in a function than a procedure and didn't really add anything of depth to the story. 
     }
     else {
         console.log("Hello " + adventurerName + " I hope you had good hunting");
@@ -34,7 +34,7 @@ function questCompletion(successfulQuest, adventurerName) { //this is the boolea
     var objectiveComplete;
     
     while ((objectiveNumber <= numberOfObjectives)&&successfulQuest) { //while loop that continues until all the objectives have been verified or the quest is marked incomplete. 
-        objectiveComplete=confirm("Did you complete objective number: " + objectiveNumber);
+        objectiveComplete=confirm("Did you complete objective number " + objectiveNumber);
         if (objectiveComplete) {
             console.log("Objective number: " + objectiveNumber + " complete!");
             objectiveNumber++
@@ -53,7 +53,7 @@ function payCalculator(totalkills, questComplete) { //this is the number functio
     var totalPay=0;
     for (iterator = 1; iterator <= totalkills; iterator++) { //basic for loop
         payFromKills = payFromKills + REIMBURSEMENT_PER_KILL;
-        console.log("From kill number " + iterator + "you have made " + REIMBURSEMENT_PER_KILL + " gold pieces. Your total so far is: " + payFromKills + " gold pieces."); //outputs the pay for the kill + the running total
+        console.log("From kill number " + iterator + " you have made " + REIMBURSEMENT_PER_KILL + " gold pieces. Your total so far is: " + payFromKills + " gold pieces."); //outputs the pay for the kill + the running total
     }
     
     if (questComplete) { //add the quest bonus if applicable
