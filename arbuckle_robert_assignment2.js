@@ -12,7 +12,7 @@ var totalReimbursement;
 var questComplete;
 // var reimbursementPerKillMultiplier; Unused due to redesign. 
 var rangedOrMelee;
-var sotrySummary;
+var storySummary;
 
 
 function greetUser(rangedOrMelee, adventurerName) { //used to greet the user 
@@ -29,7 +29,7 @@ function greetUser(rangedOrMelee, adventurerName) { //used to greet the user
 }
 
 function questCompletion(successfulQuest, adventurerName) { //this is the boolean function it takes the boolean from the confirm and the string adventurerName
-    var numberOfObjectives = 10;
+    var numberOfObjectives = 5;
     var objectiveNumber=1;
     var objectiveComplete;
     
@@ -66,22 +66,35 @@ function payCalculator(totalkills, questComplete) { //this is the number functio
 
 }
 
-//function summaryOfEvents(adventurerName, rangedOrMelee, questComplete, totalReimbursement) {
-//    var completedString;
-//    
-//}
+function summaryOfEvents(adventurerName, rangedOrMelee, questComplete, totalReimbursement) { //create a summary of events. 
+    var workingString = "Hello, " + adventurerName + " I see that you are a " + rangedOrMelee +" adventurer.";
+    if (!questComplete) { //needed another boolean logic operator so I decided to reverse the logic of this comparison. 
+        workingString = workingString+"\nIt appears your failed your quest. That is unfortunate and looks bad on your resume."; //if quest is not complete add this to the string
+    }
+    else {
+        workingString=workingString+"\nYou completed your quest. Congratulations! Keep that up and you will get promoted in no time!"; // otherwise add this to the string
+    }
+    workingString=workingString+"\nYou have earned "+ totalReimbursement+" gold pieces on this adventure. That should help you get some gear... Don't forget the enchants!."; //final addition to the string
+    return workingString;
+}
 
 adventurerName = prompt("What is your name?");
 rangedOrMelee = prompt("Are you Ranged or Melee?");
 //console.log(adventurerName); used for testing purposes to verify inputs in the log
 //console.log(rangedOrMelee);
 greetUser(rangedOrMelee, adventurerName); //calls the greetUser function - says hello to the user or guild leader. 
-questComplete = questCompletion(confirm(adventurerName + " was your quest successful?"), adventurerName);
-totalReimbursement=payCalculator(parseInt(prompt("How many monsters did you kill?")), questComplete);
+
+questComplete = questCompletion(confirm(adventurerName + " was your quest successful?"), adventurerName); //call the quest complete function
+
+totalReimbursement = payCalculator(parseInt(prompt("How many monsters did you kill?")), questComplete); //calculate pay
+
+storySummary = summaryOfEvents(adventurerName, rangedOrMelee, questComplete, totalReimbursement);
 
 
 console.log("Was your quest successful?: " + questComplete);
 console.log("Your total pay was: " + totalReimbursement);
+console.log(storySummary);
+
 
 
 
