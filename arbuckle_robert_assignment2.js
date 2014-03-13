@@ -60,16 +60,16 @@ function payCalculator(totalkills, questComplete) { //this is the number functio
         totalPay = payFromKills + REIMBURSEMENT_QUESTCOMPLETE;
     }
     else {
-        totalPay = payfromKills;
+        totalPay = payFromKills;
     }
     return totalPay; //returns the total amount the adventurer was paid. 
 
 }
 
-function summaryOfEvents(adventurerName, rangedOrMelee, questComplete, totalReimbursement) {
-    var completedString;
-    
-}
+//function summaryOfEvents(adventurerName, rangedOrMelee, questComplete, totalReimbursement) {
+//    var completedString;
+//    
+//}
 
 adventurerName = prompt("What is your name?");
 rangedOrMelee = prompt("Are you Ranged or Melee?");
